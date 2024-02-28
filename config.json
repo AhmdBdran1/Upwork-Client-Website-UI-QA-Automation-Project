@@ -1,0 +1,8 @@
+{
+  "url": "https://www.upwork.com",
+  "user_name": "Ahmd",
+  "hub_url": "http://localhost:4444/wd/hub",
+  "grid":true,
+  "serial":false,
+  "chrome":true
+}
