@@ -39,11 +39,11 @@ class BrowserWrapper:
             driver = self.get_driver(caps)
             test_execute(driver)
 
-    def test_run_grid_parallel(self, test_execute):  # run the tests on parallel
+    def test_run_grid_parallel(self, test_execute):
         options_list = self.get_capabilities_list()
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(options_list)) as executor:
-            drivers = [self.get_driver(option) for option in options_list]  # create a driver for each option
-            executor.map(test_execute, drivers)  # run the test with appropriate driver
+            drivers = [self.get_driver(option) for option in options_list]
+            results = list(executor.map(test_execute, drivers))
 
     def run_test(self, test_execute):
         config_file = '../config.json'
@@ -57,5 +57,7 @@ class BrowserWrapper:
     def get_capabilities_list(self):  # initialize the capabilities we need to test on
         chrome_cap = webdriver.ChromeOptions()
         chrome_cap.capabilities['platformName'] = 'mac'
-        cap_list = [chrome_cap]
+        firefox_cap = webdriver.FirefoxOptions()
+        firefox_cap.capabilities['platformName'] = 'mac'
+        cap_list = [chrome_cap, firefox_cap]
         return cap_list

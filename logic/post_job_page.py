@@ -39,9 +39,7 @@ class PostJobPage(BasePage):
             accept_all_cookies = WebDriverWait(self.driver, 20).until(
                 EC.element_to_be_clickable((By.XPATH, self.ACCEPT_ALL_COOKIES_BTN_XPATH))
             )
-            sleep(5)
             accept_all_cookies.click()
-            sleep(5)
 
         except Exception as e:
             print("there is no cookies to accept:")
@@ -113,7 +111,6 @@ class PostJobPage(BasePage):
         level_of_the_project.click()
 
     def select_if_there_is_opportunity_to_hire(self):
-        sleep(1)
         no_hire_chance_opportunity = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.NO_HIRE_CHANCE_BTN_XPATH))
         )
