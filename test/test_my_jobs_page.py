@@ -8,7 +8,6 @@ from logic.login_page import LoginPage
 from logic.main_page import MainPage
 from logic.my_jobs_page import MyJobsPage
 from logic.post_job_page import PostJobPage
-from logic.setting_page import SettingPage
 
 
 class HomePageTests(unittest.TestCase):
@@ -16,7 +15,7 @@ class HomePageTests(unittest.TestCase):
     def setUp(self):
         self.browser_wrapper = BrowserWrapper()
 
-    def test_close_a_job(self, driver):
+    def test_close_a_job(self, driver):  # test close the job
         main_page = MainPage(driver)
         main_page.click_to_start_login()
         login_page = LoginPage(driver)
@@ -29,9 +28,9 @@ class HomePageTests(unittest.TestCase):
         my_jobs_page = MyJobsPage(driver)
         bol = my_jobs_page.close_the_job()
         driver.quit()
-        self.assertTrue(bol)
+        self.assertTrue(bol)  # if the job is closed so it should return true
 
-    def test_edit_job_post(self, driver):
+    def test_edit_job_post(self, driver):  # test that edit the job post
         main_page = MainPage(driver)
         main_page.click_to_start_login()
         login_page = LoginPage(driver)
@@ -45,7 +44,7 @@ class HomePageTests(unittest.TestCase):
         my_jobs_page.edit_the_job_post()
         new_title = my_jobs_page.get_job_title()
         driver.quit()
-        self.assertEqual(new_title, "New title")
+        self.assertEqual(new_title, "New title")  # if the post edited , then the new title will be  "New title"
 
     def test_specific_test(self):
         self.browser_wrapper.run_test(self.test_close_a_job)  # select the specific function you want to run

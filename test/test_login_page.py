@@ -21,7 +21,7 @@ class HomePageTests(unittest.TestCase):
         driver.quit()
         self.assertEqual(name, "Ahmd Bdran")
 
-    def test_login_with_wrong_credential(self, driver):
+    def test_login_with_wrong_credential(self, driver): # test the login with the wrong credential
         main_page = MainPage(driver)
         main_page.click_to_start_login()
         login_page = LoginPage(driver)
@@ -31,7 +31,7 @@ class HomePageTests(unittest.TestCase):
         driver.quit()
         self.assertTrue(True)
 
-    def test_specific_test(self):
+    def test_specific_test(self): # run just one required test
         self.browser_wrapper.run_test(self.test_login_with_wrong_credential)
 
     def test_all_tests(self):  # run all tests

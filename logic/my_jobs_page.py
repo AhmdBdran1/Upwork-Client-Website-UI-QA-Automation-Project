@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class MyJobsPage(BasePage):
+class MyJobsPage(BasePage): # logic page for my jobs page
     POST_CARD_OPTIONS_BUTTON_XPATH = "//*[@id='dropdown-secondary-label-29']"
     REMOVE_POSTING_OPTION_XPATH = "//*[@id='popper_1']/div/div/div/div[1]/div/div/div/div/ul/li[7]"
     REASON_FOR_CLOSE_THE_JOB_XPATH = "//*[@id='reasons-dropdown']/div/div"

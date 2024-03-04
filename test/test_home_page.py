@@ -39,7 +39,7 @@ class HomePageTests(unittest.TestCase):
         driver.quit()
         self.assertLessEqual(load_time, 5, "Page load time exceeds 5 seconds")
 
-    def test_search_suggestions_functionality(self, driver):
+    def test_search_suggestions_functionality(self, driver): # test search suggestions functionality
         main_page = MainPage(driver)
         main_page.click_to_start_login()
         login_page = LoginPage(driver)
@@ -48,7 +48,7 @@ class HomePageTests(unittest.TestCase):
         home_page.click_on_search_input_and_insert_text()
         result = home_page.check_dropdown_exist()
         driver.quit()
-        self.assertTrue(result)
+        self.assertTrue(result) # if we see the dropdown of the suggestion then we get true
 
     def test_specific_test(self):
         self.browser_wrapper.run_test(self.test_post_new_job)  # select the specific function you want to run
